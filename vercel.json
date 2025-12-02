@@ -1,5 +1,17 @@
 {
-  "buildCommand": "cd my-app && npm run build",
-  "outputDirectory": "my-app/build",
-  "framework": "react"
+  "builds": [
+    {
+      "src": "my-app/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "my-app/build/index.html"
+    }
+  ]
 }

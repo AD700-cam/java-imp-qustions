@@ -1,0 +1,17 @@
+{
+  "name": "java-question-bank",
+  "version": "1.0.0",
+  "description": "Java Question Bank - BCA Sem III",
+  "private": true,
+  "scripts": {
+    "dev": "cd my-app && npm start",
+    "build": "cd my-app && npm run build",
+    "start": "cd my-app && npm start",
+    "test": "cd my-app && npm test",
+    "eject": "cd my-app && npm run eject"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
