@@ -3,6 +3,7 @@ import './App.css';
 
 const JavaUltimateQuestionBank = () => {
   const [selectedSection, setSelectedSection] = useState('all');
+  const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
   // FINAL ANALYSIS - Cross-verified from Syllabus + PDF + 3 Model Papers
   const ultimateQuestions = {
@@ -223,6 +224,38 @@ const JavaUltimateQuestionBank = () => {
 
   return (
     <div style={styles.container}>
+      {!disclaimerAccepted && (
+        <div style={styles.disclaimerOverlay}>
+          <div style={styles.disclaimerModal}>
+            <div style={styles.disclaimerHeader}>
+              <h2 style={styles.disclaimerTitle}>⚠️ DISCLAIMER</h2>
+            </div>
+            <div style={styles.disclaimerContent}>
+              <p style={styles.disclaimerText}>
+                <strong>Educational Purpose Only</strong>
+              </p>
+              <p style={styles.disclaimerText}>
+                This project and all the questions provided herein are <strong>ONLY FOR PRACTICE PURPOSE</strong>.
+              </p>
+              <ul style={styles.disclaimerList}>
+                <li>These are study materials to help you prepare for your exams</li>
+                <li>Not affiliated with or endorsed by any official institution</li>
+                <li>Use responsibly for self-study and practice</li>
+                <li>Refer to official syllabus and textbooks for comprehensive learning</li>
+              </ul>
+              <p style={styles.disclaimerText}>
+                By clicking <strong>"I Understand"</strong>, you acknowledge that you understand the educational purpose of this resource.
+              </p>
+            </div>
+            <button
+              onClick={() => setDisclaimerAccepted(true)}
+              style={styles.disclaimerButton}
+            >
+              I Understand - Continue
+            </button>
+          </div>
+        </div>
+      )}
       <div style={styles.maxWidth}>
         {/* Header */}
         <div style={styles.header}>
@@ -654,6 +687,67 @@ const styles = {
     borderRadius: '9999px',
     fontSize: '12px',
     fontWeight: 'bold'
+  },
+  disclaimerOverlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: 'rgba(0, 0, 0, 0.7)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 9999
+  },
+  disclaimerModal: {
+    background: 'white',
+    borderRadius: '16px',
+    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+    maxWidth: '500px',
+    width: '90%',
+    maxHeight: '80vh',
+    overflow: 'auto'
+  },
+  disclaimerHeader: {
+    background: 'linear-gradient(to right, #dc2626, #ea580c)',
+    color: 'white',
+    padding: '24px',
+    borderRadius: '16px 16px 0 0'
+  },
+  disclaimerTitle: {
+    fontSize: '24px',
+    fontWeight: 'bold',
+    margin: 0
+  },
+  disclaimerContent: {
+    padding: '24px'
+  },
+  disclaimerText: {
+    fontSize: '14px',
+    color: '#374151',
+    margin: '12px 0',
+    lineHeight: '1.6'
+  },
+  disclaimerList: {
+    fontSize: '14px',
+    color: '#374151',
+    paddingLeft: '20px',
+    margin: '16px 0'
+  },
+  disclaimerButton: {
+    display: 'block',
+    width: 'calc(100% - 48px)',
+    margin: '0 24px 24px 24px',
+    padding: '12px 24px',
+    background: 'linear-gradient(to right, #dc2626, #ea580c)',
+    color: 'white',
+    border: 'none',
+    borderRadius: '8px',
+    fontWeight: 'bold',
+    fontSize: '16px',
+    cursor: 'pointer',
+    transition: 'all 0.3s'
   }
 };
 
