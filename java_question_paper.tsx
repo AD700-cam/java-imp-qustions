@@ -4,7 +4,7 @@ import { Target, TrendingUp, AlertCircle, Download, CheckCircle2, Star } from 'l
 const JavaUltimateQuestionBank = () => {
   const [selectedSection, setSelectedSection] = useState('all');
 
-  // FINAL ANALYSIS - Cross-verified from Syllabus + PDF + 3 Model Papers
+  // FINAL ANALYSIS - Cross-verified from Syllabus + PDF + 3 Model Papers This is only for practise purpose
   const ultimateQuestions = {
     sectionA: [
       { 
